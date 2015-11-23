@@ -11,7 +11,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
-public class exprHealth extends SimpleExpression<Double> {
+public class exprTotalExperience extends SimpleExpression<Double> {
 	
 	private Expression<Player> player;
 	
@@ -34,7 +34,7 @@ public class exprHealth extends SimpleExpression<Double> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI health of Player";
+		return "SkillAPI class total exp of Player";
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class exprHealth extends SimpleExpression<Double> {
 		
 		try {
 			
-			return new Double[]{ SkillAPI.getPlayerData(p).getMainClass().getHealth() };
+			return new Double[]{ SkillAPI.getPlayerData(p).getMainClass().getTotalExp() };
 			
 		} catch (NullPointerException ex) {
 			

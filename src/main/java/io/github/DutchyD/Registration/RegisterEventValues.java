@@ -8,6 +8,7 @@ import com.sucy.skill.api.event.PlayerExperienceLostEvent;
 import com.sucy.skill.api.event.PlayerLevelUpEvent;
 import com.sucy.skill.api.event.PlayerManaGainEvent;
 import com.sucy.skill.api.event.PlayerManaLossEvent;
+import com.sucy.skill.api.event.PlayerSkillUnlockEvent;
 
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
@@ -70,6 +71,14 @@ public class RegisterEventValues {
 				
 				return e.getPlayerData().getPlayer().getPlayer();
 			}
-		}, 0);		
+		}, 0);
+		
+		EventValues.registerEventValue(PlayerSkillUnlockEvent.class, Player.class, new Getter<Player, PlayerSkillUnlockEvent>() {
+			
+			public Player get(PlayerSkillUnlockEvent e) {
+				
+				return e.getPlayerData().getPlayer().getPlayer();
+			}
+		}, 0);
 	}
 }

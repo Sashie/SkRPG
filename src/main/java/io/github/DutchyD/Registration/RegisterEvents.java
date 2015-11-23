@@ -7,6 +7,7 @@ import com.sucy.skill.api.event.PlayerExperienceLostEvent;
 import com.sucy.skill.api.event.PlayerLevelUpEvent;
 import com.sucy.skill.api.event.PlayerManaGainEvent;
 import com.sucy.skill.api.event.PlayerManaLossEvent;
+import com.sucy.skill.api.event.PlayerSkillUnlockEvent;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.util.SimpleEvent;
@@ -22,6 +23,7 @@ public class RegisterEvents {
 		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerCastSkillEvent.class, "SkillAPI player cast skill");
 		Skript.registerEvent("SkillAPI player mana gain", SimpleEvent.class, PlayerManaGainEvent.class, "SkillAPI player mana gain");
 		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerManaLossEvent.class, "SkillAPI player cast skill");
+		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerSkillUnlockEvent.class, "SkillAPI skill unlock");
 		
 	}
 

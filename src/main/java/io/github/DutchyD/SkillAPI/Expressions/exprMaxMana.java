@@ -14,7 +14,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
-public class exprMaxMana extends SimpleExpression<Double> {
+public class exprMaxMana extends SimpleExpression<Number> {
 	
 	private Expression<Player> player;
 	
@@ -24,8 +24,8 @@ public class exprMaxMana extends SimpleExpression<Double> {
 	}
 
 	@Override
-	public Class<? extends Double> getReturnType() {
-		return Double.class;
+	public Class<? extends Number> getReturnType() {
+		return Number.class;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -42,26 +42,36 @@ public class exprMaxMana extends SimpleExpression<Double> {
 
 	@Override
 	@Nullable
-	protected Double[] get(Event e) {
+	protected Number[] get(Event e) {
 		
 		Player p = (Player)this.player.getSingle(e);
 		
 		try {
+			Double var = SkillAPI.getPlayerData(p).getMaxMana();
+			Number number = (Number)var;
 			
-			return new Double[]{ SkillAPI.getPlayerData(p).getMaxMana() };
+			return new Number[]{ number };
 			
 		} catch (NullPointerException ex) {
 			
-			return new Double[]{ 0.0 };
+			return new Number[]{ 0 };
 		}
 	}
 	
 	@Override
 	public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
+		
+		if (mode == ChangeMode.SET) {
 			
+			return;
+		}
+		
 		if (mode == ChangeMode.ADD) {
-				
-			SkillAPI.getPlayerData(player.getSingle(e)).addMaxMana((Double)delta[0]);
+			
+			Number i = (Number)delta[0];
+			Double d = i.doubleValue();
+			
+			SkillAPI.getPlayerData(player.getSingle(e)).addMaxMana(d);
 		}
 	}
 			
@@ -75,7 +85,7 @@ public class exprMaxMana extends SimpleExpression<Double> {
 		
 		if (mode == Changer.ChangeMode.ADD)
 			
-			return CollectionUtils.array(Double.class);
+			return CollectionUtils.array(Number.class);
 		
 		return null;
 	}

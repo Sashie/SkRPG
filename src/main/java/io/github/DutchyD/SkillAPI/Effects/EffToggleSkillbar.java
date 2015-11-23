@@ -10,7 +10,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
-public class EffRefundAttributePoints extends Effect {
+public class EffToggleSkillbar extends Effect {
 	
 	private Expression<Player> player;
 	
@@ -23,14 +23,14 @@ public class EffRefundAttributePoints extends Effect {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI refund attribute points of %player%";
+		return "SkillAPI toggle skillbar of %player%";
 	}
 
 	@Override
 	protected void execute(Event e) {
 		Player p = (Player)this.player.getSingle(e);	
 			
-		SkillAPI.getPlayerData(p).refundAttributes();
+		SkillAPI.getPlayerData(p).getSkillBar().toggleEnabled();
 		return;
 	}
 }

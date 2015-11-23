@@ -14,7 +14,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
-public class exprAttributePoints extends SimpleExpression<Integer> {
+public class exprAttributePoints extends SimpleExpression<Number> {
 	
 	private Expression<Player> player;
 	
@@ -24,8 +24,8 @@ public class exprAttributePoints extends SimpleExpression<Integer> {
 	}
 
 	@Override
-	public Class<? extends Integer> getReturnType() {
-		return Integer.class;
+	public Class<? extends Number> getReturnType() {
+		return Number.class;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -43,13 +43,18 @@ public class exprAttributePoints extends SimpleExpression<Integer> {
 	@Override
 	public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
 			
+		
+		Number n = (Number)delta[0];
+		Integer integer = n.intValue();
+		
 		if (mode == ChangeMode.SET) {
-			SkillAPI.getPlayerData(player.getSingle(e)).setAttribPoints((Integer)delta[0]);
+			
+			SkillAPI.getPlayerData(player.getSingle(e)).setAttribPoints(integer);
 		}
 			
 		if (mode == ChangeMode.ADD) {
 				
-			SkillAPI.getPlayerData(player.getSingle(e)).giveAttribPoints((Integer)delta[0]);
+			SkillAPI.getPlayerData(player.getSingle(e)).giveAttribPoints(integer);
 		}
 	}
 			
@@ -59,28 +64,31 @@ public class exprAttributePoints extends SimpleExpression<Integer> {
 		
 		if (mode == Changer.ChangeMode.SET)
 			
-			return CollectionUtils.array(Integer.class);
+			return CollectionUtils.array(Number.class);
 		
 		if (mode == Changer.ChangeMode.ADD)
 			
-			return CollectionUtils.array(Integer.class);
+			return CollectionUtils.array(Number.class);
 		
 		return null;
 	}
 		
 	@Override
 	@Nullable
-	protected Integer[] get(Event e) {
+	protected Number[] get(Event e) {
 		
 		Player p = (Player)this.player.getSingle(e);
 		
 		try {
 			
-			return new Integer[]{ SkillAPI.getPlayerData(p).getAttributePoints() };
+			Integer integer = SkillAPI.getPlayerData(p).getAttributePoints();
+			Number number = (Number)integer;
+			
+			return new Number[]{ number };
 			
 		} catch (NullPointerException ex) {
 			
-			return new Integer[]{ 0 };
+			return new Number[]{ 0 };
 		}
 	}
 }

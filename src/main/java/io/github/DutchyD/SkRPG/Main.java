@@ -55,7 +55,7 @@ public class Main
 			
 			if (MythicMobs != null) {
 				
-				if ( getConfig().getBoolean("SkillAPI") == true ) {
+				if ( getConfig().getBoolean("MythicMobs") == true ) {
 					
 				
 					Bukkit.getServer().getLogger().info("[SkRPG] MythicMobs found and registered into Skript!");
