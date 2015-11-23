@@ -1,0 +1,13 @@
+#  -------------------------------------------------------------------------  #
+# "Thanks for using SkRPG for your RPG syntaxes in Skript!"
+# - Dutchy
+#  -------------------------------------------------------------------------  #
+
+
+
+# Manually disable a certain plugin's syntaxes.
+# Note: Syntaxes will only load when their dependency is present.
+
+SkillAPI: true
+MythicMobs: true
+

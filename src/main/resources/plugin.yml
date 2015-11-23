@@ -1,0 +1,4 @@
+name: SkRPG
+main: io.github.DutchyD.SkRPG.Main
+depend: [Skript]
+version: 1.0.0
