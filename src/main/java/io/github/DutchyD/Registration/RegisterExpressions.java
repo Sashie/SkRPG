@@ -6,7 +6,6 @@ import com.sucy.skill.api.enums.ExpSource;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
-import io.github.DutchyD.SkRPG.Main;
 import io.github.DutchyD.SkillAPI.Expressions.exprAttributePoints;
 import io.github.DutchyD.SkillAPI.Expressions.exprClassGroup;
 import io.github.DutchyD.SkillAPI.Expressions.exprExperience;
@@ -35,7 +34,7 @@ import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassGroup;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassName;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprVictim;
 
-public class RegisterExpressions extends Main{
+public class RegisterExpressions {
 	
 	public static void SkillAPI() {
 	
