@@ -3,8 +3,7 @@ package io.github.DutchyD.SkillAPI.SimpleExpressions;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.sucy.skill.api.event.SkillDamageEvent;
-
+import com.sucy.skill.api.event.PlayerCastSkillEvent;
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
@@ -14,38 +13,38 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.util.Kleenean;
 
-public class exprDamage extends SimpleExpression<Double> {
+public class exprCastedSkill extends SimpleExpression<String> {
 	
 	@Override
 	public boolean init(final Expression<?>[] vars, final int matchedPattern, final Kleenean isDelayed, final ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(SkillDamageEvent.class)) {
-			Skript.error("Cannot use 'SkillAPI used skill' outside of a Skill event", ErrorQuality.SEMANTIC_ERROR);
+		if (!ScriptLoader.isCurrentEvent(PlayerCastSkillEvent.class)) {
+			Skript.error("Cannot use 'SkillAPI casted skill' outside of a PlayerCastSkill event", ErrorQuality.SEMANTIC_ERROR);
 			return false;
 		}
 		return true;
 	}
 	
 	@Override
-	protected Double[] get(final Event e) {
-		return new Double[] {getDamage(e)};
+	protected String[] get(final Event e) {
+		return new String[] {getUsedSkill(e)};
 	}
 	
 	@Nullable
-	private static Double getDamage(final @Nullable Event e) {
+	private static String getUsedSkill(final @Nullable Event e) {
 		if (e == null)
 			return null;
-		if (e instanceof SkillDamageEvent) {
+		if (e instanceof PlayerCastSkillEvent) {
 			
-			final Object o = ((SkillDamageEvent) e).getDamage();
+			final Object o = ((PlayerCastSkillEvent) e).getSkill().getData().getName();
 			
-			return (Double) o;
+			return (String) o;
 		}
 		return null;
 	}
 	
 	@Override
-	public Class<? extends Double> getReturnType() {
-		return Double.class;
+	public Class<? extends String> getReturnType() {
+		return String.class;
 	}
 	
 	@Override

@@ -3,7 +3,7 @@ package io.github.DutchyD.SkillAPI.SimpleExpressions;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.sucy.skill.api.event.SkillDamageEvent;
+import com.sucy.skill.api.event.PlayerClassChangeEvent;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
@@ -14,44 +14,44 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.util.Kleenean;
 
-public class exprDamage extends SimpleExpression<Double> {
+public class exprNewClassName extends SimpleExpression<String> {
 	
 	@Override
 	public boolean init(final Expression<?>[] vars, final int matchedPattern, final Kleenean isDelayed, final ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(SkillDamageEvent.class)) {
-			Skript.error("Cannot use 'SkillAPI used skill' outside of a Skill event", ErrorQuality.SEMANTIC_ERROR);
+		if (!ScriptLoader.isCurrentEvent(PlayerClassChangeEvent.class)) {
+			Skript.error("Cannot use 'SkillAPI new class name' outside of a PlayerClassChangeEvent event", ErrorQuality.SEMANTIC_ERROR);
 			return false;
 		}
 		return true;
 	}
 	
 	@Override
-	protected Double[] get(final Event e) {
-		return new Double[] {getDamage(e)};
+	protected String[] get(final Event e) {
+		return new String[] {getPreviousClass(e)};
 	}
 	
 	@Nullable
-	private static Double getDamage(final @Nullable Event e) {
+	private static String getPreviousClass(final @Nullable Event e) {
 		if (e == null)
 			return null;
-		if (e instanceof SkillDamageEvent) {
+		if (e instanceof PlayerClassChangeEvent) {
 			
-			final Object o = ((SkillDamageEvent) e).getDamage();
+			final Object o = ((PlayerClassChangeEvent) e).getNewClass().getName();
 			
-			return (Double) o;
+			return (String) o;
 		}
 		return null;
 	}
 	
 	@Override
-	public Class<? extends Double> getReturnType() {
-		return Double.class;
+	public Class<? extends String> getReturnType() {
+		return String.class;
 	}
 	
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI attacker/damager";
+			return "SkillAPI previous class name";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

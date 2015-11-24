@@ -6,8 +6,10 @@ import io.github.DutchyD.SkillAPI.Effects.EffAddExp;
 import io.github.DutchyD.SkillAPI.Effects.EffAddLevel;
 import io.github.DutchyD.SkillAPI.Effects.EffClearBonuses;
 import io.github.DutchyD.SkillAPI.Effects.EffClearPlayerData;
+import io.github.DutchyD.SkillAPI.Effects.EffOpenAttributeMenu;
 import io.github.DutchyD.SkillAPI.Effects.EffProfess;
 import io.github.DutchyD.SkillAPI.Effects.EffRefundAttributePoints;
+import io.github.DutchyD.SkillAPI.Effects.EffRegenerateMana;
 import io.github.DutchyD.SkillAPI.Effects.EffToggleSkillbar;
 
 public class RegisterEffects {
@@ -21,6 +23,8 @@ public class RegisterEffects {
 		Skript.registerEffect(EffClearPlayerData.class, new String[] { "SkillAPI clear %player%'s data", "SkillAPI clear data of %player%"} );
 		Skript.registerEffect(EffClearBonuses.class, new String[] { "SkillAPI clear %player%'s bonuses", "SkillAPI clear bonuses of %player%"} );
 		Skript.registerEffect(EffToggleSkillbar.class, new String[] { "SkillAPI toggle %player%'s skillbar", "SkillAPI toggle skillbar of %player%"} );
+		Skript.registerEffect(EffRegenerateMana.class, new String[] { "SkillAPI regen[erate] %player%'s mana", "SkillAPI regen[erate] mana of %player%"} );
+		Skript.registerEffect(EffOpenAttributeMenu.class, new String[] { "SkillAPI open attr[ibute] menu (for|of) %player%", "SkillAPI open %player%'s attr[ibute] menu"} );
 		
 	}
 	

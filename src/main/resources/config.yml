@@ -3,8 +3,6 @@
 # - Dutchy
 #  -------------------------------------------------------------------------  #
 
-
-
 # Manually disable a certain plugin's syntaxes.
 # Note: Syntaxes will only load when their dependency is present.
 

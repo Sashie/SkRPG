@@ -16,14 +16,14 @@ public class RegisterEvents {
 	
 	public static void SkillAPI() {
 		
-		Skript.registerEvent("SkillAPI player level up", SimpleEvent.class, PlayerLevelUpEvent.class, "SkillAPI player level up");
-		Skript.registerEvent("SkillAPI player experience gain", SimpleEvent.class, PlayerExperienceGainEvent.class, "SkillAPI player experience gain");
-		Skript.registerEvent("SkillAPI player experience loss", SimpleEvent.class, PlayerExperienceLostEvent.class, "SkillAPI player experience loss");
-		Skript.registerEvent("SkillAPI player class change", SimpleEvent.class, PlayerClassChangeEvent.class, "SkillAPI player class change");
-		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerCastSkillEvent.class, "SkillAPI player cast skill");
-		Skript.registerEvent("SkillAPI player mana gain", SimpleEvent.class, PlayerManaGainEvent.class, "SkillAPI player mana gain");
-		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerManaLossEvent.class, "SkillAPI player cast skill");
-		Skript.registerEvent("SkillAPI player cast skill", SimpleEvent.class, PlayerSkillUnlockEvent.class, "SkillAPI skill unlock");
+		Skript.registerEvent("SkillAPI level up", SimpleEvent.class, PlayerLevelUpEvent.class, "SkillAPI level up");
+		Skript.registerEvent("SkillAPI experience gain", SimpleEvent.class, PlayerExperienceGainEvent.class, "SkillAPI experience gain");
+		Skript.registerEvent("SkillAPI experience loss", SimpleEvent.class, PlayerExperienceLostEvent.class, "SkillAPI experience loss");
+		Skript.registerEvent("SkillAPI class change", SimpleEvent.class, PlayerClassChangeEvent.class, "SkillAPI class change");
+		Skript.registerEvent("SkillAPI cast skill", SimpleEvent.class, PlayerCastSkillEvent.class, "SkillAPI cast skill");
+		Skript.registerEvent("SkillAPI mana gain", SimpleEvent.class, PlayerManaGainEvent.class, "SkillAPI mana gain");
+		Skript.registerEvent("SkillAPI cast skill", SimpleEvent.class, PlayerManaLossEvent.class, "SkillAPI cast skill");
+		Skript.registerEvent("SkillAPI SkillAPI skill unlock", SimpleEvent.class, PlayerSkillUnlockEvent.class, "SkillAPI skill unlock");
 		
 	}
 

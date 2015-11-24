@@ -12,5 +12,6 @@ public class RegisterConditions {
 		Skript.registerCondition(CondCanProfess.class, "SkillAPI can profess");
 		Skript.registerCondition(CondSkillbarIsEnabled.class, "SkillAPI skillbar is enabled");
 		Skript.registerCondition(CondSkillbarIsSetup.class, "SkillAPI skillbar is setup");
+		
 	}
 }

@@ -3,7 +3,7 @@ package io.github.DutchyD.SkillAPI.SimpleExpressions;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.sucy.skill.api.event.SkillDamageEvent;
+import com.sucy.skill.api.event.PlayerClassChangeEvent;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
@@ -14,12 +14,12 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.util.Kleenean;
 
-public class exprDamage extends SimpleExpression<Double> {
+public class exprPreviousClassBaseMana extends SimpleExpression<Double> {
 	
 	@Override
 	public boolean init(final Expression<?>[] vars, final int matchedPattern, final Kleenean isDelayed, final ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(SkillDamageEvent.class)) {
-			Skript.error("Cannot use 'SkillAPI used skill' outside of a Skill event", ErrorQuality.SEMANTIC_ERROR);
+		if (!ScriptLoader.isCurrentEvent(PlayerClassChangeEvent.class)) {
+			Skript.error("Cannot use 'SkillAPI previous class base mana' outside of a PlayerClassChangeEvent event", ErrorQuality.SEMANTIC_ERROR);
 			return false;
 		}
 		return true;
@@ -27,16 +27,16 @@ public class exprDamage extends SimpleExpression<Double> {
 	
 	@Override
 	protected Double[] get(final Event e) {
-		return new Double[] {getDamage(e)};
+		return new Double[] {getPreviousClass(e)};
 	}
 	
 	@Nullable
-	private static Double getDamage(final @Nullable Event e) {
+	private static Double getPreviousClass(final @Nullable Event e) {
 		if (e == null)
 			return null;
-		if (e instanceof SkillDamageEvent) {
+		if (e instanceof PlayerClassChangeEvent) {
 			
-			final Object o = ((SkillDamageEvent) e).getDamage();
+			final Object o = ((PlayerClassChangeEvent) e).getPreviousClass().getBaseMana();
 			
 			return (Double) o;
 		}
@@ -51,7 +51,7 @@ public class exprDamage extends SimpleExpression<Double> {
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI attacker/damager";
+			return "SkillAPI previous class base mana";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

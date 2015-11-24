@@ -6,6 +6,7 @@ import com.sucy.skill.api.enums.ExpSource;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
+import io.github.DutchyD.SkRPG.Main;
 import io.github.DutchyD.SkillAPI.Expressions.exprAttributePoints;
 import io.github.DutchyD.SkillAPI.Expressions.exprClassGroup;
 import io.github.DutchyD.SkillAPI.Expressions.exprExperience;
@@ -17,22 +18,33 @@ import io.github.DutchyD.SkillAPI.Expressions.exprMaxLevel;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxMana;
 import io.github.DutchyD.SkillAPI.Expressions.exprRequiredExp;
 import io.github.DutchyD.SkillAPI.Expressions.exprTotalExperience;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprCastedSkill;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprDamage;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprDamager;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprExpSource;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprExperienceGivenLost;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprLevelsGained;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprManaGivenLost;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprNewClassBaseHealth;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprNewClassBaseMana;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprNewClassGroup;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprNewClassName;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassBaseHealth;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassBaseMana;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassGroup;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassName;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprVictim;
 
-public class RegisterExpressions {
+public class RegisterExpressions extends Main{
 	
 	public static void SkillAPI() {
+	
 		
-		//Settable expressions
-		
-		Skript.registerExpression(exprMaxMana.class, Number.class, ExpressionType.PROPERTY, "SkillAPI max mana of %player%", "SkillAPI %player%'s max mana");
-		Skript.registerExpression(exprMainClass.class, String.class, ExpressionType.PROPERTY, "SkillAPI main class of %player%", "SkillAPI %player%'s main class");
-		Skript.registerExpression(exprMaxHealth.class, Number.class, ExpressionType.PROPERTY, "SkillAPI max health of %player%", "SkillAPI %player%'s max health");
-		Skript.registerExpression(exprAttributePoints.class, Number.class, ExpressionType.PROPERTY, "SkillAPI attribute points of %player%", "SkillAPI %player%'s attribute points");
+		//Settable expressions		
+		Skript.registerExpression(exprMaxMana.class, Number.class, ExpressionType.PROPERTY, "SkillAPI max mana of %player%", "SkillAPI %player%'s max mana"); // add only
+		Skript.registerExpression(exprMainClass.class, String.class, ExpressionType.PROPERTY, "SkillAPI main class of %player%", "SkillAPI %player%'s main class"); // set only
+		Skript.registerExpression(exprMaxHealth.class, Number.class, ExpressionType.PROPERTY, "SkillAPI max health of %player%", "SkillAPI %player%'s max health"); // add only
+		Skript.registerExpression(exprAttributePoints.class, Number.class, ExpressionType.PROPERTY, "SkillAPI attribute points of %player%", "SkillAPI %player%'s attribute points"); //set and add
 		
 		//Non-Settable expressions
 		Skript.registerExpression(exprClassGroup.class, String.class, ExpressionType.PROPERTY, "SkillAPI class group of %player%", "SkillAPI %player%'s class group");
@@ -45,10 +57,21 @@ public class RegisterExpressions {
 		
 		//Simple expressions
 		Skript.registerExpression(exprDamager.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI attacker");
-		Skript.registerExpression(exprVictim.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI Victim");
-		Skript.registerExpression(exprDamage.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Damage");
+		Skript.registerExpression(exprVictim.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI victim");
+		Skript.registerExpression(exprDamage.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Damage done");
 		Skript.registerExpression(exprExpSource.class, ExpSource.class, ExpressionType.SIMPLE, "SkillAPI ExpSource");
 		Skript.registerExpression(exprExperienceGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Exp[erience] (Given|Lost)");
+		Skript.registerExpression(exprManaGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI mana (Given|Lost)");
+		Skript.registerExpression(exprCastedSkill.class, String.class, ExpressionType.SIMPLE, "SkillAPI skill casted");
+		Skript.registerExpression(exprLevelsGained.class, Integer.class, ExpressionType.SIMPLE, "SkillAPI gained levels");
+		Skript.registerExpression(exprPreviousClassBaseHealth.class, Double.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class base health");
+		Skript.registerExpression(exprPreviousClassBaseMana.class, Double.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class base mana");
+		Skript.registerExpression(exprPreviousClassName.class, String.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class");
+		Skript.registerExpression(exprPreviousClassGroup.class, String.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class group");
+		Skript.registerExpression(exprNewClassBaseHealth.class, Double.class, ExpressionType.SIMPLE, "SkillAPI new class base health");
+		Skript.registerExpression(exprNewClassBaseMana.class, Double.class, ExpressionType.SIMPLE, "SkillAPI new class base mana");
+		Skript.registerExpression(exprNewClassName.class, String.class, ExpressionType.SIMPLE, "SkillAPI new class");
+		Skript.registerExpression(exprNewClassGroup.class, String.class, ExpressionType.SIMPLE, "SkillAPI new class group");
 	}
 
 }
