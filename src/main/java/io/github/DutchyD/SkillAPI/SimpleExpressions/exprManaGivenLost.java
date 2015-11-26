@@ -60,7 +60,7 @@ public class exprManaGivenLost extends SimpleExpression<Double> {
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI Experience given or lost";
+			return "SkillAPI mana given or lost";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

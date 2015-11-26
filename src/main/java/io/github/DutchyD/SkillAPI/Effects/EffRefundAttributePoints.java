@@ -31,6 +31,5 @@ public class EffRefundAttributePoints extends Effect {
 		Player p = (Player)this.player.getSingle(e);	
 			
 		SkillAPI.getPlayerData(p).refundAttributes();
-		return;
 	}
 }

@@ -11,7 +11,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
-public class exprMana extends SimpleExpression<Double> {
+public class exprManaScale extends SimpleExpression<Double> {
 	
 	private Expression<Player> player;
 	
@@ -34,7 +34,7 @@ public class exprMana extends SimpleExpression<Double> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI mana of %player%";
+		return "SkillAPI mana scale of %player%";
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class exprMana extends SimpleExpression<Double> {
 		
 		try {
 			
-			return new Double[]{ SkillAPI.getPlayerData(p).getMana() };
+			return new Double[]{ SkillAPI.getPlayerData(p).getMainClass().getData().getManaScale() };
 			
 		} catch (NullPointerException ex) {
 			

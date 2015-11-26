@@ -33,7 +33,7 @@ public class exprClassGroup extends SimpleExpression<String> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI main class of player";
+		return "SkillAPI class group of %player%";
 	}
 
 	@Override

@@ -31,6 +31,5 @@ public class EffToggleSkillbar extends Effect {
 		Player p = (Player)this.player.getSingle(e);	
 			
 		SkillAPI.getPlayerData(p).getSkillBar().toggleEnabled();
-		return;
 	}
 }

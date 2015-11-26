@@ -37,7 +37,7 @@ public class exprMaxMana extends SimpleExpression<Number> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI max mana of Player";
+		return "SkillAPI max mana of %player%";
 	}
 
 	@Override

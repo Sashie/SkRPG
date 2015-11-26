@@ -1,29 +1,18 @@
-package io.github.DutchyD.SkillAPI.Expressions;
+package io.github.DutchyD.SkillAPI.Effects;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.sucy.skill.SkillAPI;
-
+import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
-import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
-public class exprMana extends SimpleExpression<Double> {
+public class EffClearAllPlayerBinds extends Effect {
 	
 	private Expression<Player> player;
-	
-	@Override
-	public boolean isSingle() {
-		return true;
-	}
-
-	@Override
-	public Class<? extends Double> getReturnType() {
-		return Double.class;
-	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -34,22 +23,15 @@ public class exprMana extends SimpleExpression<Double> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI mana of %player%";
+		return "SkillAPI clear all binds of %player%";
 	}
 
 	@Override
-	@Nullable
-	protected Double[] get(Event e) {
-		
+	protected void execute(Event e) {
 		Player p = (Player)this.player.getSingle(e);
 		
-		try {
+		
 			
-			return new Double[]{ SkillAPI.getPlayerData(p).getMana() };
-			
-		} catch (NullPointerException ex) {
-			
-			return new Double[]{ 0.0 };
-		}
+		SkillAPI.getPlayerData(p).clearAllBinds();
 	}
 }

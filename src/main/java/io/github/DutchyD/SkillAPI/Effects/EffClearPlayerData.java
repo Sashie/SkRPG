@@ -5,7 +5,6 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.sucy.skill.SkillAPI;
-import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
@@ -24,23 +23,14 @@ public class EffClearPlayerData extends Effect {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI add %amount% Exp[erience] to %player% from exp source %source%";
+		return "SkillAPI clear data of %player%";
 	}
 
 	@Override
 	protected void execute(Event e) {
 		Player p = (Player)this.player.getSingle(e);
 		
-		
-		
-		try {
 			
-			SkillAPI.getPlayerData(p).resetAll();
-			
-		} catch (NullPointerException ex) {
-			
-			Skript.warning("[SkRPG] Error: NPE resetting class. Did the player have a class in the first place?");
-			return;
-		}
+		SkillAPI.getPlayerData(p).resetAll();
 	}
 }

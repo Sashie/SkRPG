@@ -34,7 +34,7 @@ public class exprLevel extends SimpleExpression<Integer> {
 	
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "Level of player";
+		return "SkillAPI level of %player%";
 	}
 	
 	@Override

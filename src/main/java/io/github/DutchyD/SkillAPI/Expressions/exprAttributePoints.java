@@ -37,7 +37,7 @@ public class exprAttributePoints extends SimpleExpression<Number> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI attribute points";
+		return "SkillAPI attribute points of %player%";
 	}
 	
 	@Override

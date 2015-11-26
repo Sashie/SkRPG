@@ -51,7 +51,7 @@ public class exprNewClassBaseHealth extends SimpleExpression<Double> {
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI previous class max mana";
+			return "SkillAPI new class max mana";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

@@ -51,7 +51,7 @@ public class exprNewClassName extends SimpleExpression<String> {
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI previous class name";
+			return "SkillAPI new class name";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

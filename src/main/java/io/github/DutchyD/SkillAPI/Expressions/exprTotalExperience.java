@@ -34,7 +34,7 @@ public class exprTotalExperience extends SimpleExpression<Double> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI class total exp of Player";
+		return "SkillAPI total exp of %player%";
 	}
 
 	@Override

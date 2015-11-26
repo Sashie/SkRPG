@@ -1,9 +1,10 @@
 package io.github.DutchyD.SkillAPI.SimpleExpressions;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.sucy.skill.api.event.SkillDamageEvent;
+import com.sucy.skill.api.event.SkillHealEvent;
 
 import ch.njol.skript.ScriptLoader;
 import ch.njol.skript.Skript;
@@ -14,44 +15,44 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.util.Kleenean;
 
-public class exprDamage extends SimpleExpression<Double> {
+public class exprHealer extends SimpleExpression<Entity> {
 	
 	@Override
 	public boolean init(final Expression<?>[] vars, final int matchedPattern, final Kleenean isDelayed, final ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(SkillDamageEvent.class)) {
-			Skript.error("Cannot use 'SkillAPI used skill' outside of a Skill event", ErrorQuality.SEMANTIC_ERROR);
+		if (!ScriptLoader.isCurrentEvent(SkillHealEvent.class)) {
+			Skript.error("Cannot use 'SkillAPI healer' outside of a SkillDamage event", ErrorQuality.SEMANTIC_ERROR);
 			return false;
 		}
 		return true;
 	}
 	
 	@Override
-	protected Double[] get(final Event e) {
-		return new Double[] {getDamage(e)};
+	protected Entity[] get(final Event e) {
+		return new Entity[] {getHealer(e)};
 	}
 	
 	@Nullable
-	private static Double getDamage(final @Nullable Event e) {
+	private static Entity getHealer(final @Nullable Event e) {
 		if (e == null)
 			return null;
-		if (e instanceof SkillDamageEvent) {
+		if (e instanceof SkillHealEvent) {
 			
-			final Object o = ((SkillDamageEvent) e).getDamage();
+			final Object o = ((SkillHealEvent) e).getHealer();
 			
-			return (Double) o;
+			return (Entity) o;
 		}
 		return null;
 	}
 	
 	@Override
-	public Class<? extends Double> getReturnType() {
-		return Double.class;
+	public Class<? extends Entity> getReturnType() {
+		return Entity.class;
 	}
 	
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI damage";
+			return "SkillAPI healer";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

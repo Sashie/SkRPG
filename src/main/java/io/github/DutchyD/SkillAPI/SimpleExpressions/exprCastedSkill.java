@@ -50,7 +50,7 @@ public class exprCastedSkill extends SimpleExpression<String> {
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (e == null)
-			return "SkillAPI attacker/damager";
+			return "SkillAPI casted skill";
 		return Classes.getDebugMessage(getSingle(e));
 	}
 	

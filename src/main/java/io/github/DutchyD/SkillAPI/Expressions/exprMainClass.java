@@ -42,7 +42,7 @@ public class exprMainClass extends SimpleExpression<String> {
 
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
-		return "SkillAPI main class of player";
+		return "SkillAPI main class of %player%";
 	}
 
 	@Override

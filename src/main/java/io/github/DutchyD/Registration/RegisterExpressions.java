@@ -1,5 +1,6 @@
 package io.github.DutchyD.Registration;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 
 import com.sucy.skill.api.enums.ExpSource;
@@ -7,11 +8,14 @@ import com.sucy.skill.api.enums.ExpSource;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import io.github.DutchyD.SkillAPI.Expressions.exprAttributePoints;
+import io.github.DutchyD.SkillAPI.Expressions.exprChatColour;
 import io.github.DutchyD.SkillAPI.Expressions.exprClassGroup;
 import io.github.DutchyD.SkillAPI.Expressions.exprExperience;
+import io.github.DutchyD.SkillAPI.Expressions.exprHealthScale;
 import io.github.DutchyD.SkillAPI.Expressions.exprLevel;
 import io.github.DutchyD.SkillAPI.Expressions.exprMainClass;
 import io.github.DutchyD.SkillAPI.Expressions.exprMana;
+import io.github.DutchyD.SkillAPI.Expressions.exprManaScale;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxHealth;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxLevel;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxMana;
@@ -53,6 +57,9 @@ public class RegisterExpressions {
 		Skript.registerExpression(exprMaxLevel.class, Integer.class, ExpressionType.PROPERTY, "SkillAPI max level of %player%", "SkillAPI %player%'s max level");
 		Skript.registerExpression(exprLevel.class, Integer.class, ExpressionType.PROPERTY, "SkillAPI level of %player%", "SkillAPI %player%'s level");
 		Skript.registerExpression(exprRequiredExp.class, Integer.class, ExpressionType.PROPERTY, "SkillAPI required exp[erience] of %player%", "SkillAPI %player%'s required exp[erience]");
+		Skript.registerExpression(exprHealthScale.class, Double.class, ExpressionType.PROPERTY, "SkillAPI health scale of %player%", "SkillAPI %player%'s health scale");
+		Skript.registerExpression(exprManaScale.class, Double.class, ExpressionType.PROPERTY, "SkillAPI mana scale of %player%", "SkillAPI %player%'s mana scale");
+		Skript.registerExpression(exprChatColour.class, ChatColor.class, ExpressionType.PROPERTY, "SkillAPI (chat colo[u]r|chatcolo[u]r) of %player%", "SkillAPI %player%'s (chat colo[u]r|chatcolo[u]r)");
 		
 		//Simple expressions
 		Skript.registerExpression(exprDamager.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI attacker");
