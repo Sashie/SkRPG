@@ -15,6 +15,7 @@ import io.github.DutchyD.SkillAPI.Expressions.exprHealthScale;
 import io.github.DutchyD.SkillAPI.Expressions.exprLevel;
 import io.github.DutchyD.SkillAPI.Expressions.exprMainClass;
 import io.github.DutchyD.SkillAPI.Expressions.exprMana;
+import io.github.DutchyD.SkillAPI.Expressions.exprManaRegen;
 import io.github.DutchyD.SkillAPI.Expressions.exprManaScale;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxHealth;
 import io.github.DutchyD.SkillAPI.Expressions.exprMaxLevel;
@@ -60,6 +61,7 @@ public class RegisterExpressions {
 		Skript.registerExpression(exprHealthScale.class, Double.class, ExpressionType.PROPERTY, "SkillAPI health scale of %player%", "SkillAPI %player%'s health scale");
 		Skript.registerExpression(exprManaScale.class, Double.class, ExpressionType.PROPERTY, "SkillAPI mana scale of %player%", "SkillAPI %player%'s mana scale");
 		Skript.registerExpression(exprChatColour.class, ChatColor.class, ExpressionType.PROPERTY, "SkillAPI (chat colo[u]r|chatcolo[u]r) of %player%", "SkillAPI %player%'s (chat colo[u]r|chatcolo[u]r)");
+		Skript.registerExpression(exprManaRegen.class, Double.class, ExpressionType.PROPERTY, "SkillAPI mana regen of %player%", "SkillAPI %player%'s mana regen");
 		
 		//Simple expressions
 		Skript.registerExpression(exprDamager.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI attacker");
