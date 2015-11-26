@@ -37,6 +37,7 @@ import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassBaseHealth;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassBaseMana;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassGroup;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprPreviousClassName;
+import io.github.DutchyD.SkillAPI.SimpleExpressions.exprUnlockedSkill;
 import io.github.DutchyD.SkillAPI.SimpleExpressions.exprVictim;
 
 public class RegisterExpressions {
@@ -68,10 +69,10 @@ public class RegisterExpressions {
 		Skript.registerExpression(exprVictim.class, Entity.class, ExpressionType.SIMPLE, "SkillAPI victim");
 		Skript.registerExpression(exprDamage.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Damage done");
 		Skript.registerExpression(exprExpSource.class, ExpSource.class, ExpressionType.SIMPLE, "SkillAPI ExpSource");
-		Skript.registerExpression(exprExperienceGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Exp[erience] (Given|Lost)");
-		Skript.registerExpression(exprManaGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI mana (Given|Lost)");
+		Skript.registerExpression(exprExperienceGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI Exp[erience] (Gained|Lost)");
+		Skript.registerExpression(exprManaGivenLost.class, Double.class, ExpressionType.SIMPLE, "SkillAPI mana (gained|Lost)");
 		Skript.registerExpression(exprCastedSkill.class, String.class, ExpressionType.SIMPLE, "SkillAPI skill casted");
-		Skript.registerExpression(exprLevelsGained.class, Integer.class, ExpressionType.SIMPLE, "SkillAPI gained levels");
+		Skript.registerExpression(exprLevelsGained.class, Integer.class, ExpressionType.SIMPLE, "SkillAPI levels gained");
 		Skript.registerExpression(exprPreviousClassBaseHealth.class, Double.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class base health");
 		Skript.registerExpression(exprPreviousClassBaseMana.class, Double.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class base mana");
 		Skript.registerExpression(exprPreviousClassName.class, String.class, ExpressionType.SIMPLE, "SkillAPI prev[ious] class");
@@ -80,6 +81,7 @@ public class RegisterExpressions {
 		Skript.registerExpression(exprNewClassBaseMana.class, Double.class, ExpressionType.SIMPLE, "SkillAPI new class base mana");
 		Skript.registerExpression(exprNewClassName.class, String.class, ExpressionType.SIMPLE, "SkillAPI new class");
 		Skript.registerExpression(exprNewClassGroup.class, String.class, ExpressionType.SIMPLE, "SkillAPI new class group");
+		Skript.registerExpression(exprUnlockedSkill.class, String.class, ExpressionType.SIMPLE, "SkillAPI unlocked skill");
 	}
 
 }

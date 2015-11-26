@@ -15,7 +15,7 @@ public class CondCanProfess extends PropertyCondition<Player> {
 
 	@Override
 	protected String getPropertyName() {
-		return "SkillAPI can profess";
+		return "SkillAPI %player% can profess";
 	}
 	
 	

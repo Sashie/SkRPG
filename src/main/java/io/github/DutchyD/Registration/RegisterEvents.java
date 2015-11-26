@@ -19,10 +19,10 @@ public class RegisterEvents {
 	public static void SkillAPI() {
 		
 		Skript.registerEvent("SkillAPI level up", SimpleEvent.class, PlayerLevelUpEvent.class, "SkillAPI level up");
-		Skript.registerEvent("SkillAPI experience gain", SimpleEvent.class, PlayerExperienceGainEvent.class, "SkillAPI experience gain");
-		Skript.registerEvent("SkillAPI experience loss", SimpleEvent.class, PlayerExperienceLostEvent.class, "SkillAPI experience loss");
+		Skript.registerEvent("SkillAPI exp[erience] gain", SimpleEvent.class, PlayerExperienceGainEvent.class, "SkillAPI exp[erience] gain");
+		Skript.registerEvent("SkillAPI exp[erience] loss", SimpleEvent.class, PlayerExperienceLostEvent.class, "SkillAPI exp[erience] loss");
 		Skript.registerEvent("SkillAPI class change", SimpleEvent.class, PlayerClassChangeEvent.class, "SkillAPI class change");
-		Skript.registerEvent("SkillAPI cast skill", SimpleEvent.class, PlayerCastSkillEvent.class, "SkillAPI cast skill");
+		Skript.registerEvent("SkillAPI skill cast", SimpleEvent.class, PlayerCastSkillEvent.class, "SkillAPI skill cast");
 		Skript.registerEvent("SkillAPI mana gain", SimpleEvent.class, PlayerManaGainEvent.class, "SkillAPI mana gain");
 		Skript.registerEvent("SkillAPI mana loss", SimpleEvent.class, PlayerManaLossEvent.class, "SkillAPI mana loss");
 		Skript.registerEvent("SkillAPI skill unlock", SimpleEvent.class, PlayerSkillUnlockEvent.class, "SkillAPI skill unlock");

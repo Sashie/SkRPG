@@ -30,8 +30,8 @@ public class RegisterEffects {
 		Skript.registerEffect(EffRegenerateMana.class, new String[] { "SkillAPI regen[erate] %player%'s mana", "SkillAPI regen[erate] mana of %player%"} );
 		Skript.registerEffect(EffOpenAttributeMenu.class, new String[] { "SkillAPI open attr[ibute] menu (for|of) %player%", "SkillAPI open %player%'s attr[ibute] menu"} );
 		
-		Skript.registerEffect(EffAllowExpSource.class, new String[] { "SkillAPI add %ExpSource% to %string%'s allowed exp[erience] sources"} );
-		Skript.registerEffect(EffDisallowExpSource.class, new String[] { "SkillAPI remove %ExpSource% to %string%'s allowed exp[erience] sources"} );
+		Skript.registerEffect(EffAllowExpSource.class, new String[] { "SkillAPI add %ExpSource% (to|from) %string%'s allowed exp[erience] sources"} );
+		Skript.registerEffect(EffDisallowExpSource.class, new String[] { "SkillAPI remove %ExpSource% (to|from) %string%'s allowed exp[erience] sources"} );
 		Skript.registerEffect(EffCastSkill.class, new String[] { "SkillAPI make %player% cast skill %string%"} );
 		Skript.registerEffect(EffProfess.class, new String[] { "SkillAPI profess %player% into %string%" } );
 	}

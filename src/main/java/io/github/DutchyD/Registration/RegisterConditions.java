@@ -12,9 +12,9 @@ public class RegisterConditions {
 		
 		
 		
-		Skript.registerCondition(CondCanProfess.class, "SkillAPI can profess");
-		Skript.registerCondition(CondSkillbarIsEnabled.class, "SkillAPI skillbar is enabled");
-		Skript.registerCondition(CondSkillbarIsSetup.class, "SkillAPI skillbar is setup");
+		Skript.registerCondition(CondCanProfess.class, "SkillAPI %player% can profess");
+		Skript.registerCondition(CondSkillbarIsEnabled.class, "SkillAPI %player% has skillbar enabled");
+		Skript.registerCondition(CondSkillbarIsSetup.class, "SkillAPI %player% skillbar is setup");
 		Skript.registerCondition(CondHasSkill.class, "SkillAPI %player% has skill %string%");
 	}
 }
