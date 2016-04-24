@@ -14,13 +14,14 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/Node9/workspace/External Jars/spigot-1.9.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="F:/PluginJars/MythicMobs.jar"/>
-	<classpathentry kind="lib" path="F:/PluginJars/SkillAPI.jar"/>
-	<classpathentry kind="lib" path="F:/PluginJars/MCCore.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Node9/workspace/External Jars/MythicMobs-2.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Node9/workspace/External Jars/SkillAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Node9/workspace/External Jars/MCCore.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

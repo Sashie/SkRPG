@@ -12,6 +12,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import net.elseland.xikage.MythicMobs.MythicMobs;
 import net.elseland.xikage.MythicMobs.API.MythicMobsAPI;
+import net.elseland.xikage.MythicMobs.API.Exceptions.InvalidMobTypeException;
 import net.elseland.xikage.MythicMobs.Mobs.MythicMob;
 
 public class EffSpawnMythicMob extends Effect {
@@ -41,17 +42,21 @@ public class EffSpawnMythicMob extends Effect {
 		String string = (String)this.string.getSingle(e);
 		Integer i = (Integer)this.integer.getSingle(e);
 		
-			
 		MythicMobs mythicmobs = (MythicMobs) Bukkit.getServer().getPluginManager().getPlugin("MythicMobs");
 			
 		MythicMobsAPI api = mythicmobs.getAPI();
-		MythicMob mm = api.getMobAPI().getMythicMob(string);
-		api.getMobAPI().spawnMythicMob(mm, l, i);
-			
-		if (!( api.getMobAPI().getMythicMob(string).getInternalName().toString().equals(string) )) {
-				
+		MythicMob mm;
+		try {
+			//MythicMob mm = api.getMobAPI().getMythicMob(string);
+			mm = api.getMobAPI().getMythicMob(string);
+			api.getMobAPI().spawnMythicMob(mm, l, i);	
+			if (!( api.getMobAPI().getMythicMob(string).getInternalName().toString().equals(string) )) {
+				Skript.warning("Tried to spawn nonexistant MythicMobs mob.");	
+			}
+		} catch (InvalidMobTypeException e1) {
+			// TODO Auto-generated catch block
 			Skript.warning("Tried to spawn nonexistant MythicMobs mob.");
-				
+			e1.printStackTrace();
 		}
 	}
 }
