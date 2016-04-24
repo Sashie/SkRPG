@@ -1,6 +1,6 @@
 # SkRPG
 
-This fork wil continue the work of Dutchys skRPG the way it was meant to be.
+This fork will continue the work of Dutchys skRPG the way it was meant to be.
 First I will work on adding the featuress in the 'Future features:' section of the original topic post.
 
     More SkillAPI support
